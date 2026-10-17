@@ -77,6 +77,6 @@ The game also creates `high_score.txt` to store the highest score.
 ## 👨‍💻 Author
 
 Developed by Aditya Narayan as a Python programming project to practice game development and problem-solving.
-Linkdin: https://www.linkedin.com/in/aditya-narayan-p-b04b9a416
+LinkedIn: https://www.linkedin.com/in/aditya-narayan-p-b04b9a416
 
 If you like this project, consider giving the repository a ⭐!
