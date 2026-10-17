@@ -6,7 +6,7 @@ pygame.mixer.pre_init(44100, -16, 2, 1024)
 pygame.init()
 
 # Display setting
-screen_weight = 800
+screen_width = 800
 screen_height = 400
 white = (255, 255, 255)
 red = (255, 0 ,0)
@@ -15,17 +15,17 @@ blue = (0, 0, 255)
 yellow = (255, 255, 0)
 black = (0, 0, 0)
 
-window_size = pygame.display.set_mode((screen_weight, screen_height))
+window_size = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Snake Game')
 
 # background image
 
 bgimg1 = pygame.image.load('welcome.jpg')
-bgimg1 = pygame.transform.scale(bgimg1, (screen_weight, screen_height)).convert_alpha()
+bgimg1 = pygame.transform.scale(bgimg1, (screen_width, screen_height)).convert_alpha()
 bgimg2 = pygame.image.load('play.jpg')
-bgimg2 = pygame.transform.scale(bgimg2, (screen_weight, screen_height)).convert_alpha()
+bgimg2 = pygame.transform.scale(bgimg2, (screen_width, screen_height)).convert_alpha()
 bgimg3 = pygame.image.load('gameover.jpg')
-bgimg3 = pygame.transform.scale(bgimg3, (screen_weight, screen_height)).convert_alpha()
+bgimg3 = pygame.transform.scale(bgimg3, (screen_width, screen_height)).convert_alpha()
 pygame.display.update()
 
 clock = pygame.time.Clock()
@@ -50,7 +50,7 @@ def welcome():
     while not exit_game:
 
         window_size.fill((white))
-        text_display('Welcome to the Snkae Game',blue, 130, 150, font1)
+        text_display('Welcome to the Snake Game',blue, 130, 150, font1)
         text_display("Hit 'Space bar' or 'Enter' to PLAY!", green, 125, 250, font2)
 
         for event in pygame.event.get():
@@ -84,7 +84,7 @@ def Game():
     score = 0
     sensivity = 13
     snk_list = []
-    snk_lenght = 1
+    snk_length = 1
 
     if(not os.path.exists("high_score.txt")):
         with open("high_score.txt","w") as f:
@@ -155,7 +155,7 @@ def Game():
                 score += 10
                 food_x = random.randint(20,700)            
                 food_y = random.randint(20,300)
-                snk_lenght += 4
+                snk_length += 4
                 init_velocity += 1
                 if score > int(high_score):
                     high_score = score
@@ -175,10 +175,10 @@ def Game():
             head.append(snake_y)
             snk_list.append(head)
 
-            if len(snk_list) > snk_lenght:
+            if len(snk_list) > snk_length:
                 del snk_list[0]
 
-            if snake_x < 0 or  snake_x > screen_weight or snake_y < 0 or snake_y > screen_height:
+            if snake_x < 0 or  snake_x > screen_width or snake_y < 0 or snake_y > screen_height:
                 game_over = True
 
             if head in snk_list[:-1]:
